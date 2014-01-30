@@ -6,5 +6,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_airport_list">AirportList</string>
     <string name="airport_name">Start typing airport name</string>
-    
+    <string name="title_activity_splash_screen">SplashScreen</string>
+
 </resources>
