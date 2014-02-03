@@ -9,12 +9,53 @@
     tools:context=".HomeScreen" >
 
 	<Button
-        android:id="@+id/search_airport_list"
+        android:id="@+id/from_btn_search_airport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="fromAirportSearch"
+        android:background="@drawable/tap_to_select"
+        tools:ignore="HardcodedText" />
+	
+	<TextView
+	    android:id="@+id/from_text_search_airport"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/from_btn_search_airport"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true"
+	    android:layout_alignRight="@+id/from_btn_search_airport"
+	    android:clickable="false"
+	    android:fontFamily="sans-serif"
+	    android:gravity="center"
+	    android:textColor="#FFFFFF"
+	    android:textSize="40sp" 
+	    android:background="@color/app_background"/>
+	
+	<Button
+        android:id="@+id/to_btn_search_airport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:onClick="searchAirportList"
-        android:text="Airport"
+        android:onClick="toAirportSearch"
+        android:background="@drawable/tap_to_select"
         tools:ignore="HardcodedText" />
+	
+	<TextView
+	    android:id="@+id/to_text_search_airport"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_alignBottom="@+id/to_btn_search_airport"
+	    android:layout_alignLeft="@+id/to_btn_search_airport"
+	    android:layout_alignParentRight="true"
+	    android:layout_alignParentTop="true"
+	    android:clickable="false"
+	    android:fontFamily="sans-serif"
+	    android:gravity="center"
+	    android:textColor="#FFFFFF"
+	    android:textSize="40sp" 
+	    android:background="@color/app_background"/>
+	
 </RelativeLayout>
