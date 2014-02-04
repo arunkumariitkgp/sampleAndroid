@@ -2,60 +2,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".HomeScreen" >
+    android:background="@color/app_background" >
 
-	<Button
-        android:id="@+id/from_btn_search_airport"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/title_text_view"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:onClick="fromAirportSearch"
-        android:background="@drawable/tap_to_select"
-        tools:ignore="HardcodedText" />
-	
-	<TextView
-	    android:id="@+id/from_text_search_airport"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBottom="@+id/from_btn_search_airport"
-	    android:layout_alignParentLeft="true"
-	    android:layout_alignParentTop="true"
-	    android:layout_alignRight="@+id/from_btn_search_airport"
-	    android:clickable="false"
-	    android:fontFamily="sans-serif"
-	    android:gravity="center"
-	    android:textColor="#FFFFFF"
-	    android:textSize="40sp" 
-	    android:background="@color/app_background"/>
-	
-	<Button
-        android:id="@+id/to_btn_search_airport"
-        android:layout_width="wrap_content"
+        android:clickable="false"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="@string/flight_search"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/title_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/title_text_view"
+        android:background="@color/app_theme_orange"
+        android:clickable="false" 
+        android:layout_marginTop="5dp"/>
+
+    <LinearLayout
+        android:id="@+id/trip_buttons"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:onClick="toAirportSearch"
-        android:background="@drawable/tap_to_select"
-        tools:ignore="HardcodedText" />
-	
-	<TextView
-	    android:id="@+id/to_text_search_airport"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignBottom="@+id/to_btn_search_airport"
-	    android:layout_alignLeft="@+id/to_btn_search_airport"
-	    android:layout_alignParentRight="true"
-	    android:layout_alignParentTop="true"
-	    android:clickable="false"
-	    android:fontFamily="sans-serif"
-	    android:gravity="center"
-	    android:textColor="#FFFFFF"
-	    android:textSize="40sp" 
-	    android:background="@color/app_background"/>
-	
+        android:layout_below="@id/title_divider"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+       	android:layout_marginTop="10dp">
+
+        <Button
+            android:id="@+id/one_way"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:onClick="oneWay"
+            android:text="ONE WAY"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/round_trip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:onClick="roundTrip"
+            android:text="ROUND TRIP"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/multi_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button"
+            android:onClick="multiCity"
+            android:text="MULTI CITY"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trip_buttons"
+        android:padding="15dp" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" >
+
+            <Button
+                android:id="@+id/from_btn_search_airport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:background="@drawable/tap_to_select"
+                android:onClick="fromAirportSearch"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/from_text_search_airport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/from_btn_search_airport"
+                android:layout_alignLeft="@+id/from_btn_search_airport"
+                android:layout_alignRight="@+id/from_btn_search_airport"
+                android:layout_alignTop="@+id/from_btn_search_airport"
+                android:background="@color/app_background"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="45sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="17dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/plane_forward" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="26dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/plane_return" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true" >
+
+            <Button
+                android:id="@+id/to_btn_search_airport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/tap_to_select"
+                android:onClick="toAirportSearch"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/to_text_search_airport"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/to_btn_search_airport"
+                android:layout_alignLeft="@+id/to_btn_search_airport"
+                android:layout_alignRight="@+id/to_btn_search_airport"
+                android:layout_alignTop="@+id/to_btn_search_airport"
+                android:background="@color/app_background"
+                android:clickable="false"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="45sp" />
+        </RelativeLayout>
+    </RelativeLayout>
+
 </RelativeLayout>

@@ -7,13 +7,18 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Button;
 
 public class HomeScreen extends Activity {
 
 	private TextView fromTextView;
 	private TextView toTextView;
+	private Button oneWayButton;
+	private Button roundTripButton;
+	private Button multiCityButton;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,10 +28,7 @@ public class HomeScreen extends Activity {
 		setContentView(R.layout.activity_home_screen);
 		View view = this.getWindow().getDecorView();
 	    view.setBackgroundColor(Color.parseColor("#2F2F2F"));
-	    this.fromTextView = (TextView)findViewById(R.id.from_text_search_airport);
-	    this.toTextView = (TextView)findViewById(R.id.to_text_search_airport);
-	    this.fromTextView.setVisibility(View.INVISIBLE);
-	    this.toTextView.setVisibility(View.INVISIBLE);
+	    this.adjustViewOutlets();
 	}
 
 	@Override
@@ -48,11 +50,29 @@ public class HomeScreen extends Activity {
 		startActivityForResult(intent, 2);
 	}
 	
+	public void oneWay(View view){
+		this.oneWayButton.setBackgroundResource(R.drawable.button_selected);
+		this.roundTripButton.setBackgroundResource(R.drawable.button_normal);
+		this.multiCityButton.setBackgroundResource(R.drawable.button_normal);
+	}
+
+	public void roundTrip(View view){
+		this.oneWayButton.setBackgroundResource(R.drawable.button_normal);
+		this.roundTripButton.setBackgroundResource(R.drawable.button_selected);
+		this.multiCityButton.setBackgroundResource(R.drawable.button_normal);
+	}
+
+	public void multiCity(View view){
+		this.oneWayButton.setBackgroundResource(R.drawable.button_normal);
+		this.roundTripButton.setBackgroundResource(R.drawable.button_normal);
+		this.multiCityButton.setBackgroundResource(R.drawable.button_selected);
+	}
+
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)  
 	{  
-		super.onActivityResult(requestCode, resultCode, data);  
-		switch (requestCode) {
+		super.onActivityResult(requestCode,resultCode,data);  
+		switch (resultCode) {
 		case 1:
 			String from = data.getStringExtra("SEARCH");
 			this.fromTextView.setText(from);
@@ -67,4 +87,23 @@ public class HomeScreen extends Activity {
 			break;
 		}
 	}  
+	
+	private void adjustViewOutlets () {
+	    this.fromTextView = (TextView)findViewById(R.id.from_text_search_airport);
+	    this.toTextView = (TextView)findViewById(R.id.to_text_search_airport);
+	    this.fromTextView.setVisibility(View.INVISIBLE);
+	    this.toTextView.setVisibility(View.INVISIBLE);
+	    Typeface tFace = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Bold.ttf");
+	    this.fromTextView.setTypeface(tFace);
+	    this.toTextView.setTypeface(tFace);
+	    
+	    this.oneWayButton = (Button)findViewById(R.id.one_way);
+	    this.roundTripButton = (Button)findViewById(R.id.round_trip);
+	    this.multiCityButton = (Button)findViewById(R.id.multi_city);
+	    tFace = Typeface.createFromAsset(getAssets(), "fonts/HelveticaNeueLTStd-Md.otf");
+	    this.oneWayButton.setTypeface(tFace);
+	    this.roundTripButton.setTypeface(tFace);
+	    this.multiCityButton.setTypeface(tFace);
+		this.roundTripButton.setBackgroundResource(R.drawable.button_selected);
+	}
 }

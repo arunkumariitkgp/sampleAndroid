@@ -76,6 +76,14 @@ public class AirportList extends Activity {
 	    });
 	}
 	
+	@Override
+    public void onBackPressed() {
+		Intent intent=new Intent();  
+        setResult(999,intent);  
+        finish();  
+        return;
+	}
+	
 	private class StableArrayAdapter extends ArrayAdapter<String> {
 
 		HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();

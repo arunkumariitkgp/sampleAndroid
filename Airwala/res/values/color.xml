@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="app_background">#2F2F2F</color>
+	<color name="white">#FFFFFF</color>
+	<color name="app_theme_orange">#E27645</color>
+
 </resources>

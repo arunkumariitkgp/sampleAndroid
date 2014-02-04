@@ -7,5 +7,5 @@
     <string name="title_activity_airport_list">AirportList</string>
     <string name="airport_name">Start typing airport name</string>
     <string name="title_activity_splash_screen">SplashScreen</string>
-
+	<string name="flight_search">Flight Search</string>
 </resources>
