@@ -66,8 +66,7 @@ public class AirportList extends Activity {
 	    	public void onItemClick(AdapterView<?> parent, final android.view.View view,
 	    			int position, long id) {
 	    		String item = (String) parent.getItemAtPosition(position);
-	    		Log.v("selected item"+item,item);
-	    		item = item.substring(1, 4);
+//	    		item = item.substring(1, 4);
 	    		Intent intent=new Intent();  
                 intent.putExtra("SEARCH",item);  
                 setResult(searchCode,intent);  
