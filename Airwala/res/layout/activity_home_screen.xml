@@ -8,6 +8,7 @@
         android:id="@+id/title_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:clickable="false"
         android:fontFamily="sans-serif-condensed"
         android:gravity="center_horizontal"
@@ -32,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title_divider"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="20dp"
         android:gravity="center"
         android:orientation="horizontal" >
 
@@ -71,8 +72,10 @@
     </LinearLayout>
 
     <RelativeLayout
+        android:id="@+id/roundtrip_airport_name_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_below="@id/trip_buttons"
         android:padding="15dp" >
 
@@ -266,6 +269,31 @@
                 android:contentDescription="@string/app_name"
                 android:src="@drawable/tap_to_select_divider" />
         </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/roundtrip_date_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_below="@+id/roundtrip_airport_name_layout"
+        android:layout_centerInParent="true">
+        
+        <Button
+                android:id="@+id/departure_date_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:onClick="departureDate"
+                android:background="@drawable/date_of_departure" />
+        <Button
+                android:id="@+id/return_date_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:onClick="returnDate"
+                android:layout_toRightOf="@+id/departure_date_image"
+                android:background="@drawable/return_date" />
     </RelativeLayout>
 
 </RelativeLayout>

@@ -73,6 +73,16 @@ public class HomeScreen extends Activity {
 		this.multiCityButton.setBackgroundResource(R.drawable.button_selected);
 	}
 
+	public void departureDate(View view){
+		Intent intent = new Intent(this,Calender.class);
+		startActivity(intent);
+	}
+	
+	public void returnDate(View view){
+		Intent intent = new Intent(this,Calender.class);
+		startActivity(intent);
+	}
+	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data)  
 	{  
@@ -84,6 +94,7 @@ public class HomeScreen extends Activity {
 			this.fromTextView.setText(from.substring(1, 4));
 			String[] from_arr = from.split(" - ");
 			from_arr = from_arr[1].split(", ");
+			from = "<font color=#FFFFFF>+from_arr[0]+, </font> <font color=#8F8F8F>+from_arr[1]</font>";
 			this.fromDetailTextView.setText(from_arr[0]+", "+from_arr[1]);
 			break;
 		case 2:
@@ -92,6 +103,7 @@ public class HomeScreen extends Activity {
 			this.toTextView.setText(to.substring(1, 4));
 			String[] to_arr = to.split(" - ");
 			to_arr = to_arr[1].split(", ");
+			to = "<font color=#FFFFFF>+to_arr[0]+, </font> <font color=#8F8F8F>+to_arr[1]</font>";
 			this.toDetailTextView.setText(to_arr[0]+", "+to_arr[1]);
 			break;
 		default:
